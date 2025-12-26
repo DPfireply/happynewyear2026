@@ -43,47 +43,23 @@
             to { border-color: #00ffff; box-shadow: 0 0 35px #00ffff, inset 0 0 35px #00ffff, 0 0 60px #00ffff; transform: scale(1); }
         }
 
-        /* --- BOTTOM CORNER ROCKETS (NEW) --- */
+        /* --- BOTTOM CORNER ROCKETS --- */
         .bottom-rocket {
-            position: fixed;
-            bottom: 30px;
-            font-size: 4rem;
-            /* Fiery Gradient Color for Rockets */
+            position: fixed; bottom: 30px; font-size: 4rem;
             background: linear-gradient(to top, #ff8c00, #ffff00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            /* Glow effect */
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 5px 15px rgba(255, 69, 0, 0.8));
-            z-index: 100; /* Behind UI but visible */
-            pointer-events: none;
+            z-index: 100; pointer-events: none;
         }
+        .left-rocket { left: 30px; transform: rotate(-30deg); animation: rocketShakeLeft 0.8s infinite alternate ease-in-out; }
+        .right-rocket { right: 30px; transform: rotate(30deg); animation: rocketShakeRight 0.8s infinite alternate ease-in-out; }
 
-        .left-rocket {
-            left: 30px;
-            transform: rotate(-30deg); /* Angle inwards */
-            animation: rocketShakeLeft 0.8s infinite alternate ease-in-out;
-        }
-
-        .right-rocket {
-            right: 30px;
-            transform: rotate(30deg); /* Angle inwards */
-            animation: rocketShakeRight 0.8s infinite alternate ease-in-out;
-        }
-
-        /* Animations for the rockets launching feel */
-        @keyframes rocketShakeLeft {
-            from { transform: rotate(-30deg) translateY(0px); }
-            to { transform: rotate(-30deg) translateY(-15px); opacity: 0.8; }
-        }
-        @keyframes rocketShakeRight {
-            from { transform: rotate(30deg) translateY(0px); }
-            to { transform: rotate(30deg) translateY(-15px); opacity: 0.8; }
-        }
+        @keyframes rocketShakeLeft { from { transform: rotate(-30deg) translateY(0px); } to { transform: rotate(-30deg) translateY(-15px); opacity: 0.8; } }
+        @keyframes rocketShakeRight { from { transform: rotate(30deg) translateY(0px); } to { transform: rotate(30deg) translateY(-15px); opacity: 0.8; } }
 
         /* --- UI LAYER --- */
         .ui-layer { position: relative; z-index: 20; width: 90%; max-width: 600px; }
 
-        /* Header with Rocket Deco */
         .deco-header {
             display: flex; align-items: center; justify-content: center; gap: 10px;
             color: #ccc; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 5px;
@@ -99,9 +75,7 @@
         .year { font-size: 5rem; display: block; color: #fff; text-shadow: 0 0 20px #00ffff; }
 
         /* --- TIMER --- */
-        .timer-container {
-            display: flex; justify-content: center; gap: 10px; margin: 20px 0;
-        }
+        .timer-container { display: flex; justify-content: center; gap: 10px; margin: 20px 0; }
         .time-box {
             background: rgba(0, 255, 255, 0.1); border: 1px solid #00ffff;
             padding: 10px 5px; border-radius: 10px; min-width: 65px;
@@ -110,7 +84,6 @@
         .time-box span { font-size: 1.8rem; font-weight: bold; display: block; color: #fff; }
         .time-box label { font-size: 0.7rem; color: #00ffff; text-transform: uppercase; }
 
-        /* --- BADGE & BOXES --- */
         .from-badge {
             display: inline-block; background: rgba(0, 0, 0, 0.7); padding: 10px 20px;
             border-radius: 50px; font-size: 1.2rem; border: 1px solid rgba(255,255,255,0.3);
@@ -126,7 +99,6 @@
             color:#aaa; margin-bottom:15px; font-size:0.9rem;
         }
         
-        /* Glowing Share Text */
         .share-text {
             font-size: 0.9rem; color: #ffd700; margin: 10px 0 5px 0;
             font-weight: bold; letter-spacing: 1px; animation: textGlow 1.5s infinite alternate;
@@ -142,13 +114,11 @@
             background: rgba(255,255,255,0.1); color: white;
         }
         
-        /* Autofill fix (Box kala rakhne ke liye) */
         input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
             -webkit-box-shadow: 0 0 0 30px #1a1a1a inset !important;
             -webkit-text-fill-color: white !important; transition: background-color 5000s ease-in-out 0s;
         }
 
-        /* Buttons */
         .btn {
             display: flex; align-items: center; justify-content: center; gap: 10px;
             padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold;
@@ -156,16 +126,9 @@
             transition: 0.2s;
         }
         .btn:active { transform: scale(0.95); }
-        
         .btn-whatsapp { background: #25D366; }
-        
-        /* New Copy Link Button Style */
-        .btn-copy {
-            background: linear-gradient(45deg, #ff00cc, #3333ff);
-            box-shadow: 0 0 10px #3333ff;
-        }
+        .btn-copy { background: linear-gradient(45deg, #ff00cc, #3333ff); box-shadow: 0 0 10px #3333ff; }
 
-        /* Top Icons */
         .top-btn {
             position: fixed; top: 25px; width: 45px; height: 45px; border-radius: 50%;
             border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.6); color: white;
@@ -173,7 +136,6 @@
         }
         .about-btn { left: 25px; }
 
-        /* --- MODAL --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);
             z-index: 250; display: none; justify-content: center; align-items: center;
@@ -189,7 +151,6 @@
 
         @media (max-width: 400px) { 
             h1 { font-size: 2.5rem; } .year { font-size: 4rem; } .time-box{min-width: 55px;} .time-box span{font-size: 1.5rem;}
-            /* Chhote phone par rockets थोड़े छोटे दिखेंगे */
             .bottom-rocket { font-size: 2.5rem; bottom: 20px; }
         }
     </style>
@@ -261,7 +222,7 @@
             <hr style="border: 0; border-top: 1px solid #333; margin: 15px 0;">
             <p style="margin-bottom: 15px;">Want a website like this?</p>
             
-            <a href="https://wa.me/917307078151" class="btn" style="background: #00ffff; color: #000;">
+            <a href="https://wa.me/919999999999" class="btn" style="background: #00ffff; color: #000;">
                 <i class="fab fa-whatsapp"></i> Contact / Order Now
             </a>
         </div>
@@ -277,7 +238,6 @@
         const aboutModal = document.getElementById('aboutModal');
         let audioStarted = false;
 
-        // --- TIMER LOGIC ---
         const countDate = new Date('Jan 1, 2026 00:00:00').getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -288,16 +248,14 @@
             document.getElementById('s').innerText = Math.floor((gap % (1000 * 60)) / 1000);
         }, 1000);
 
-        // --- SOUND LOOP LOGIC ---
         function playRandomBlast() {
             if(!audioStarted) return;
             const soundClone = blastSound.cloneNode();
-            soundClone.volume = 0.6; // Volume control
+            soundClone.volume = 0.6;
             soundClone.play().catch(() => {});
-            setTimeout(playRandomBlast, Math.random() * 1500 + 500); // Loop interval
+            setTimeout(playRandomBlast, Math.random() * 1500 + 500);
         }
 
-        // --- UNLOCK AUDIO ON CLICK ---
         function ensureAudioPlays() {
             if (audioStarted) return;
             audioStarted = true;
@@ -307,29 +265,26 @@
             }).catch((e) => console.log("Waiting for interaction..."));
         }
 
-        // --- NAME FROM URL ---
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             const name = urlParams.get('n');
             if(name) { senderNameEl.innerText = name; document.title = "Wishes from " + name; }
-            
-            // Try auto start (works on some desktops)
             ensureAudioPlays();
         };
 
-        // --- WHATSAPP SHARE FUNCTION ---
+        // --- WHATSAPP SHARE ---
         function shareOnWhatsApp() {
             var nameInput = document.getElementById('userName').value;
             if(nameInput.trim() === "") { alert("Naam to likho bhai!"); return; }
             
             var baseUrl = window.location.href.split('?')[0];
             var newLink = baseUrl + "?n=" + encodeURIComponent(nameInput);
-            var msg = `*Happy New Year 2026!* 🎇\n\n${nameInput} has sent you a magical surprise!\nOpen here: ${newLink}`;
+            var msg = `*Happy New Year 2026!* 🎇\n\n🎁 *${nameInput}* ne apko ek *Gift* bheja hai!\n\n👇 Yahan click karke dekho:\n${newLink}`;
             
             window.open("https://wa.me/?text=" + encodeURIComponent(msg));
         }
 
-        // --- COPY LINK FUNCTION ---
+        // --- COPY LINK + MESSAGE ---
         function copyLink() {
             var nameInput = document.getElementById('userName').value;
             if(nameInput.trim() === "") { alert("Naam to likho bhai!"); return; }
@@ -337,14 +292,16 @@
             var baseUrl = window.location.href.split('?')[0];
             var newLink = baseUrl + "?n=" + encodeURIComponent(nameInput);
             
-            navigator.clipboard.writeText(newLink).then(() => {
-                alert("Link Copied! 📋\n\nAb Instagram Story, FB ya doston ko paste karke bhejo!");
+            // Ye message copy hoga
+            var msg = `Happy New Year 2026! 🎇\n\n🎁 ${nameInput} ne apko ek Gift bheja hai!\n\n👇 Yahan click karke dekho:\n${newLink}`;
+            
+            navigator.clipboard.writeText(msg).then(() => {
+                alert("Message Copied! 📋\n\nAb Instagram ya FB par paste kar do!");
             }).catch(err => {
-                prompt("Copy this link:", newLink);
+                prompt("Copy this:", msg);
             });
         }
 
-        // --- MODAL FUNCTIONS ---
         function openAbout() { aboutModal.style.display = 'flex'; }
         function closeAbout() { aboutModal.style.display = 'none'; }
     </script>
